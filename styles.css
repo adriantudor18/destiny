@@ -1,0 +1,180 @@
+:root {
+    /* Bungie-inspired color palette */
+    --bg-primary: #0b0b0b;
+    --bg-secondary: #1a1a1a;
+    --accent-primary: #4287f5;
+    --accent-secondary: #59a4ff;
+    --text-primary: #e0e0e0;
+    --text-secondary: #888888;
+    --border-color: #2c2c2c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-primary) var(--bg-secondary);
+}
+
+body {
+    font-family: 'DIN', 'Arial', sans-serif; /* Bungie's typical font */
+    background-color: var(--bg-primary);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 11, 11, 0.85);
+    z-index: -1;
+}
+
+header {
+    background-color: rgba(26, 26, 26, 0.9);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--accent-primary);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--text-primary);
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+nav a.active {
+    color: var(--accent-primary);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+h1, h2 {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Section Styles */
+section {
+    background-color: rgba(26, 26, 26, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+}
+
+/* Button Styles */
+.btn, .tips-modal-btn {
+    display: inline-block;
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover, .tips-modal-btn:hover {
+    background-color: var(--accent-secondary);
+    transform: translateY(-3px);
+}
+
+/* List Styles */
+ul, ol {
+    padding-left: 2rem;
+    border-left: 2px solid var(--accent-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        padding: 1rem;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 5px;
+}
